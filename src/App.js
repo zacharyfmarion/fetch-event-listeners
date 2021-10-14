@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import axios from "axios";
 import './App.css';
+
+function fetchWithAxios() {
+  console.log("fetching with axios");
+  return axios.get("https://jsonplaceholder.typicode.com/todos/1");
+}
+
+function fetchWithVanillaFetch() {
+  console.log("fetching with vanilla fetch");
+  return fetch("https://jsonplaceholder.typicode.com/todos/1", {
+    method: "GET"
+  }).then((res) => res.json());
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={fetchWithAxios}>Fetch with axios</button>
+      <button onClick={fetchWithVanillaFetch}>Fetch with vanilla fetch</button> 
     </div>
   );
 }
