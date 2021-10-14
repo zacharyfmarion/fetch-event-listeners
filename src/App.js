@@ -1,5 +1,4 @@
 import axios from "axios";
-import './App.css';
 
 function fetchWithAxios() {
   console.log("fetching with axios");
