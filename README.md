@@ -1,6 +1,6 @@
 Demonstrates that axios creates additional event listeners when calling a fetch. To repro:
 
-1. Run `yarn start`
+1. Run `yarn && yarn start`
 2. Open chrome devtools
 3. Click the `esc` key to pull up the console.
 4. Click the vertical hamburger menu at the top left of the console panel
