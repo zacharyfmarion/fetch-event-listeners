@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 
 function fetchWithAxios() {
   console.log("fetching with axios");
@@ -12,23 +13,20 @@ function fetchWithVanillaFetch() {
   }).then((res) => res.json());
 }
 
-function postWithAxios() {
-  return axios.post("https://jsonplaceholder.typicode.com/posts");
-}
-
-function postWithVanillaFetch() {
-  return fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "POST"
-  }).then((res) => res.json());
-}
-
 function App() {
+  useEffect(() => {
+    setTimeout(() => {
+      fetchWithAxios();
+    }, 5000)
+
+    setTimeout(() => {
+      fetchWithVanillaFetch();
+    }, 10000)
+  }, [])
+
   return (
     <div className="App">
-      <button onClick={fetchWithAxios}>Get with axios</button>
-      <button onClick={fetchWithVanillaFetch}>Get with vanilla fetch</button> 
-      <button onClick={postWithAxios}>Post with axios</button>
-      <button onClick={postWithVanillaFetch}>Post with vanilla fetch</button> 
+      Axios call made after 5 seconds, fetch after 10 
     </div>
   );
 }
